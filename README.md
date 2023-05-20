@@ -1,3 +1,5 @@
+
+
 # LuaFileSystem with CMake Support
 
 Forked from https://lunarmodules.github.io/luafilesystem.
@@ -40,27 +42,21 @@ cmake --install . --config Release
 
 Replace `<arch>` with your desired architecture. Available architectures with selected `Visual Studio 17 2022` generator are `Win32`, `x64`, `ARM` and `ARM64`. LuaFileSystem documentation is available in `<lua_install_dir>/share/doc/luafilesystem` after install and also at the [project website](https://lunarmodules.github.io/luafilesystem).
 
-## Fetch Changes form original LuaFileSystem Repository
+## Sync this fork with original LuaFileSystem repository
 
-These are the command to incorporate code base changes form original LuaFileSystem repository.
+Open Git Bash and execute `./SyncFork.sh`.
 
-1. Add original and remote repository to local clone. This step is only required once.
-
-```cmd
-C:\misc\luafilesystem>git remote add luafilesystem https://github.com/lunarmodules/luafilesystem.git
-C:\misc\luafilesystem>git remote -v
-luafilesystem   https://github.com/lunarmodules/luafilesystem.git (fetch)
-luafilesystem   https://github.com/lunarmodules/luafilesystem.git (push)
-origin  git@github.com:KritzelKratzel/luafilesystem.git (fetch)
-origin  git@github.com:KritzelKratzel/luafilesystem.git (push)
-C:\misc\luafilesystem>
+```bash
+John Doe@DESKTOP-1HK25HF MINGW64 /c/misc/luafilesystem (master)
+$ ./SyncFork.sh
+Original remote repo found.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+From github.com:KritzelKratzel/luafilesystem
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+Already up to date.
+Everything up-to-date
+John Doe@DESKTOP-1HK25HF MINGW64 /c/misc/luafilesystem (master)
 ```
 
-2. Command sequence for fetching changes on original repository on [Lunar Modules](https://github.com/lunarmodules/luafilesystem):
-
-```cmd
-git checkout master
-git pull origin master
-git merge luafilesystem/master
-git push origin master
-```
