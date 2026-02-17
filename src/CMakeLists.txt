@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2023 Kritzel Kratzel.
+# Copyright (c) 2023-2026 The OneLuaPro project authors.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in 
@@ -27,8 +27,9 @@ add_library(lfs SHARED)
 target_include_directories(lfs PRIVATE ${LIBLUA_INCLUDEDIR})
 # setup platform-specific sources, compile and linker options
 if(WIN32 AND NOT MinGW)
-  target_compile_options(lfs PRIVATE /D_WIN32 /D_CRT_SECURE_NO_WARNINGS)
-  target_link_options(lfs PRIVATE /LIBPATH:${LIBLUA_LIBDIR} liblua.lib)
+  target_compile_definitions(lfs PRIVATE _WIN32 _CRT_SECURE_NO_WARNINGS _WINDLL)
+  target_link_directories(lfs PRIVATE ${LIBLUA_LIBDIR})
+  target_link_libraries(lfs PRIVATE liblua.lib)
 else()
   message(FATAL_ERROR "Not yet fully implemented.")
 endif()
